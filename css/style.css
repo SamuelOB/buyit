@@ -1,0 +1,83 @@
+body{
+    background-color: #FFFFFF;  
+    font-family: "arial", sans-serif;
+    margin:0;
+    padding:0;
+    width: 100%;
+}
+/*DIV do input*/
+#pesquisa{
+    display: flex;
+    justify-content: space-around;  
+    margin: 0 auto;
+    width: 70%;
+}
+/* input */
+#search{
+    width: 90%;
+    border-radius: 50px 2px 2px 50px;
+    border: 0;
+    padding: 2%;
+    font-size: 16px;
+}
+#botao{
+    background-color: #E6E6E6;
+    color: #39393B;
+    padding: 2%;
+    width: 10%;
+    border-radius: 2px 50px 50px 2px;
+}
+#pesquisa, #botao{
+    text-align: center;
+}
+#destaques{
+    background-color: #FFFFFF;
+    color: #39393B;
+    margin: 0 auto;
+    margin-top: 4%;
+    width: 75%;
+    padding: 2%;
+}
+.destaques_uni{
+    width: 87%;
+    margin: 0 auto;
+    margin-top: 2%;
+}
+.divHome{
+    background-color: #FFFFFF;
+    color: #39393B;
+    /*display: flex;
+    justify-content: space-around;*/
+    margin: 0 auto;
+    margin-top: 2%;
+    text-decoration: none;
+    border: 1px solid #CFCCCC;
+}
+.divNome, .divPreco, .imgNew, .divLogo, .link{
+    margin: 2%;
+}
+.divHome a{  
+    text-decoration: none;
+    color: #39393B;
+}
+.divLogo{
+    width: 10%;
+}
+.link{
+    cursor: pointer;
+}
+header.masthead {
+    position: relative;
+    width: 100%;
+    padding: 16% 0;
+    background: url(../img/fundo.png),linear-gradient(to right,#045FB4 ,#5B247A, #00054E);
+}
+#celular{
+    margin: 0 43%;
+}
+.autocomplete{
+    font-weight: bold;
+    padding: .2em .4em;
+    margin: .8em 0 .2em;
+    line-height: 1.5;
+}
