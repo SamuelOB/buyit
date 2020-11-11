@@ -74,7 +74,7 @@ function criarEvento() {
       { label: "LG K9", category: "LG" }
     ];
  
-    $( "#search" ).catcomplete({
+    $( "#searchbar" ).catcomplete({
       delay: 0,
       source: data
     });

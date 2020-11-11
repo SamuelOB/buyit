@@ -2,7 +2,7 @@ function pesquisa() {
     removeDiv();
     reajustar();
     var p, q;
-    var input = document.getElementById("search").value;
+    var input = document.getElementById("searchbar").value;
     p = input.split(" ").join("+");
     q = input.split(" ").join("%20");
     sendReqColombo(q);
@@ -12,6 +12,10 @@ function pesquisa() {
 function removeDiv(){
     var remove = document.querySelectorAll(".divHome");
     remove.forEach(function(rem) {
+        rem.parentNode.removeChild(rem);
+    });
+    var remove2 = document.querySelectorAll("#highlights");
+    remove2.forEach(function(rem) {
         rem.parentNode.removeChild(rem);
     });
 }
