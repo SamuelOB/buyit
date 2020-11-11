@@ -1,30 +1,237 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Compare...</title>
-        <link rel="stylesheet" href="css/style.css">
-        <script src="js/sites.js"></script>
-        <script src="js/autocomplete.js"></script>
-        <script src="js/jquery-3.4.1.min.js"></script>
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	</head>
-	<body>
-        <header class="masthead">
-            <div id="celular"><img src="img/celular.png"></div>
-            <div id="pesquisa">
-                <input type="search" id="search" placeholder="Compare o melhor preço..." onclick="criarEvento()"> 
-                <div id="botao" onclick="pesquisa()">Vamos lá</div>
-                <ul class="sugestoes"></ul>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BuyIt</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Hind+Guntur:400,600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <!-- Main Stylesheet File -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/72c6380c9f.js" crossorigin="anonymous"></script>
+
+    <script src="js/sites.js"></script>
+    <script src="js/autocomplete.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+    <header id="top">
+        <div class="row justify-content-center">
+            <nav class="navbar navbar-expand-sm">
+                <a class="navbar-brand logo" href="#">
+                    <img src="img/logo-buyit.png" alt="logo-buyit">
+                </a>
+                <div class="buttonIn">
+                    <input type="search" id="searchbar" class="form-control" aria-label="Pesquisar" onclick="criarEvento()">
+                    <button type="submit" class="button" onclick="pesquisa()"><i class="fas fa-search"></i></button>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div id="destaques">
+            <div class="destaques_uni">
+                <div id="highlights">
+                    <h1>Destaques</h1>
+                    <h2>Celulares mais clicados em nosso site</h2>
+                    <section id="products">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="product-grid card">
+                                        <h6 class="card-title"><a
+                                                href="https://www.carrefour.com.br/iphone-xr-256gb-apple-ios-12-4g-wi-fi-camera-12mp-preto-mv19360491/p"
+                                                target="_blank">iPhone XR 256GB Apple iOS 12 4G + Wi-fi Câmera 12MP
+                                                Preto</a></h6>
+                                        <div class="img-wrapper card-img-top">
+                                            <a href="https://www.carrefour.com.br/iphone-xr-256gb-apple-ios-12-4g-wi-fi-camera-12mp-preto-mv19360491/p"
+                                                target="_blank">
+                                                <img alt="Product" src="img/iphonexr.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="price-review">
+                                            <p>R$6.199,90</p>
+                                            <div class="stars">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            </div>
+                                        </div>
+                                        <div class="card-img-bottom alinhar carrefour">
+                                            <a href="https://www.carrefour.com.br/iphone-xr-256gb-apple-ios-12-4g-wi-fi-camera-12mp-preto-mv19360491/p"
+                                                target="_blank">
+                                                <img src="img/logo-carrefour.png" alt="logo-carrefour" width="120">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="product-grid card">
+                                        <h6 class="card-title"><a
+                                                href="https://www.carrefour.com.br/smartphone-samsung-galaxy-s20-128gb-cosmic-gray-4g-tela-6-2-pol-camera-tripla-64mp-selfie-10mp-android-10-6652689/p"
+                                                target="_blank">Smartphone Samsung Galaxy S20 128GB Cosmic Gray 4G</a></h6>
+                                        <div class="img-wrapper card-img-top">
+                                            <a href="https://www.carrefour.com.br/smartphone-samsung-galaxy-s20-128gb-cosmic-gray-4g-tela-6-2-pol-camera-tripla-64mp-selfie-10mp-android-10-6652689/p"
+                                                target="_blank">
+                                                <img alt="Product" src="img/galaxys20.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="price-review">
+                                            <p>R$3.299,00</p>
+                                            <div class="stars">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="notchecked">☆</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-img-bottom alinhar carrefour">
+                                            <a href="https://www.carrefour.com.br/smartphone-samsung-galaxy-s20-128gb-cosmic-gray-4g-tela-6-2-pol-camera-tripla-64mp-selfie-10mp-android-10-6652689/p"
+                                                target="_blank">
+                                                <img src="img/logo-carrefour.png" alt="logo-carrefour" width="120">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="product-grid card">
+                                        <h6 class="card-title"><a
+                                                href="https://www.carrefour.com.br/smartphone-motorola-g8-play-32gb-preto-onix-tela-6-2-camera-tripla-13mp-selfie-8mp-dual-chip-android-9-5852765/p"
+                                                target="_blank">Smartphone Motorola G8 Play 32GB Preto Ônix Tela 6,2"</a>
+                                        </h6>
+                                        <div class="img-wrapper card-img-top">
+                                            <a href="https://www.carrefour.com.br/smartphone-motorola-g8-play-32gb-preto-onix-tela-6-2-camera-tripla-13mp-selfie-8mp-dual-chip-android-9-5852765/p"
+                                                target="_blank">
+                                                <img alt="Produto" src="img/motorola.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="price-review">
+                                            <p>R$1.428,90</p>
+                                            <div class="stars">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            </div>
+                                        </div>
+                                        <div class="card-img-bottom alinhar carrefour">
+                                            <a href="https://www.carrefour.com.br/smartphone-motorola-g8-play-32gb-preto-onix-tela-6-2-camera-tripla-13mp-selfie-8mp-dual-chip-android-9-5852765/p"
+                                                target="_blank">
+                                                <img src="img/logo-carrefour.png" alt="logo-carrefour" width="120">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="product-grid card">
+                                        <h6 class="card-title"><a
+                                                href="https://www.cissamagazine.com.br/smartphone-xiaomi-redmi-note-9-128gb-verde"
+                                                target="_blank">Smartphone Xiaomi Redmi Note 9 128GB Versão Global Verde</a></h6>
+                                        <div class="img-wrapper card-img-top iphonered">
+                                            <a href="https://www.cissamagazine.com.br/smartphone-xiaomi-redmi-note-9-128gb-verde"
+                                                target="_blank">
+                                                <img alt="Produto" src="img/xiaominote.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="price-review">
+                                            <p>R$5.442,59</p>
+                                            <div class="stars">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="notchecked">☆</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-img-bottom alinhar cissa">
+                                            <a href="https://www.cissamagazine.com.br/smartphone-xiaomi-redmi-note-9-128gb-verde"
+                                                target="_blank">
+                                                <img src="img/logo-cissa.png" alt="logo-cissa" width="80">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="product-grid card">
+                                        <h6 class="card-title"><a
+                                                href="https://www.cissamagazine.com.br/smartphone-xiaomi-redmi-note-8-64gb-desbloqueado-preto"
+                                                target="_blank">Smartphone Xiaomi Redmi Note 8 64GB Versão Global Preto</a>
+                                        </h6>
+                                        <div class="img-wrapper card-img-top">
+                                            <a href="https://www.cissamagazine.com.br/smartphone-xiaomi-redmi-note-8-64gb-desbloqueado-preto"
+                                                target="_blank">
+                                                <img alt="Product" src="img/xiaomi.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="price-review">
+                                            <p>R$1.285,92</p>
+                                            <div class="stars">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            </div>
+                                        </div>
+                                        <div class="card-img-bottom alinhar cissa">
+                                            <a href="https://www.cissamagazine.com.br/smartphone-xiaomi-redmi-note-8-64gb-desbloqueado-preto"
+                                                target="_blank">
+                                                <img src="img/logo-cissa.png" alt="logo-cissa" width="80">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
-        </header>
-		<main>
-            <div id="destaques">
-                <div class="destaques_uni"></div>
+        </div>
+    </main>
+    <footer>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="social">
+                    <h3>Redes Sociais</h3>
+                    <ul class="social-network social-circle">
+                        <li><a href="#" class="icoFacebook" title="Facebook"><span
+                                    class="fab fa-facebook-square"></span></a></li>
+                        <li><a href="#" class="icoInsta" title="Instagram"><span class="fab fa-instagram"></span></a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </main> 
-	</body>
+            <div class="col-md-12 copy">
+                <p class="text-center">BuyIt &copy;. Desenvolvido por Elisama, Marta e Samuel.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>
