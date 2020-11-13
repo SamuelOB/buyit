@@ -8,6 +8,7 @@ function pesquisa() {
     sendReqColombo(q);
     sendReqSaldao(p);
     sendReqCasa(q);
+    comentario();
 }
 function removeDiv(){
     var remove = document.querySelectorAll(".divHome");
@@ -24,6 +25,12 @@ function reajustar(){
         padding: "2% 0"
     });
 }
+function comentario(){
+    var comentario = document.querySelector("#session-comentarios");
+    var historico = document.querySelector("#session-historico");
+    comentario.style.display="flex";
+    historico.style.position="inherit";
+}
 function rasparColombo(documento){
     var imgs = documento.querySelectorAll(".nm-product-img");
     var ps = documento.querySelectorAll(".nm-product-name");
@@ -35,12 +42,14 @@ function rasparColombo(documento){
         var divHTML = document.querySelector(".destaques_uni");
         var divCelular = document.createElement("div");
         var img = document.createElement("img");
+        var estrela = document.createElement("img");
         var divNome = document.createElement("div");
         var divPreco = document.createElement("div");
         var link = document.createElement("a");
         var divLogo = document.createElement("img");
         divCelular.setAttribute("class","divHome");
         img.setAttribute("class","imgNew");
+        estrela.setAttribute("class","imgEstrela");
         divNome.setAttribute("class","divNome");
         divPreco.setAttribute("class","divPreco");
         divLogo.setAttribute("class","divLogo");
@@ -49,12 +58,14 @@ function rasparColombo(documento){
         var rep = imgs[i].src;
         rep = rep.replace("file","https");
         img.src = rep;
+        estrela.src = "../buyit-main/img/estrela_3.png";
         divNome.innerHTML = ps[i].innerHTML;
         divPreco.innerHTML = preco[i].innerHTML + parcela[i].innerHTML;
         divLogo.src = logo;
         link.appendChild(img);
         link.appendChild(divNome);
         link.appendChild(divPreco);
+        divCelular.appendChild(estrela);
         divCelular.appendChild(link);
         divCelular.appendChild(divLogo);
         divHTML.appendChild(divCelular);
@@ -74,24 +85,28 @@ function rasparSaldao(documento){
         var divHTML = document.querySelector(".destaques_uni");
         var divCelular = document.createElement("div");
         var img = document.createElement("img");
+        var estrela = document.createElement("img");
         var divNome = document.createElement("div");
         var divPreco = document.createElement("div");
         var link = document.createElement("a");
         var divLogo = document.createElement("div");
         divCelular.setAttribute("class","divHome");
         img.setAttribute("class","imgNew");
+        estrela.setAttribute("class","imgEstrela");
         divNome.setAttribute("class","divNome");
         divPreco.setAttribute("class","divPreco");
         divLogo.setAttribute("class","divLogo");
         link.setAttribute("class","link");
         link.target = "_blank";
         img.src = imgs[i].src;
+        estrela.src = "../buyit-main/img/estrela_5.png";
         divNome.innerHTML = ps[i].innerHTML;
         divPreco.innerHTML = preco[i].innerHTML + parcela[i].innerHTML;
         divLogo.innerHTML = logo.innerHTML;
         link.appendChild(img);
         link.appendChild(divNome);
         link.appendChild(divPreco);
+        divCelular.appendChild(estrela);
         divCelular.appendChild(link);
         divCelular.appendChild(divLogo);
         divHTML.appendChild(divCelular);
@@ -111,24 +126,28 @@ function rasparCasa(documento){
         var divHTML = document.querySelector(".destaques_uni");
         var divCelular = document.createElement("div");
         var img = document.createElement("img");
+        var estrela = document.createElement("img");
         var divNome = document.createElement("div");
         var divPreco = document.createElement("div");
         var link = document.createElement("a");
         var divLogo = document.createElement("img");
         divCelular.setAttribute("class","divHome");
         img.setAttribute("class","imgNew");
+        estrela.setAttribute("class","imgEstrela");
         divNome.setAttribute("class","divNome");
         divPreco.setAttribute("class","divPreco");
         divLogo.setAttribute("class","divLogo");
         link.setAttribute("class","link");
         link.target = "_blank";
         img.src = imgs[i].src;
+        estrela.src = "../buyit-main/img/estrela_1.png";
         divNome.innerHTML = ps[i].innerHTML;
         divPreco.innerHTML = preco[i].innerHTML + parcela[i].innerHTML;
         divLogo.src = logo;
         link.appendChild(img);
         link.appendChild(divNome);
         link.appendChild(divPreco);
+        divCelular.appendChild(estrela);
         divCelular.appendChild(link);
         divCelular.appendChild(divLogo);
         divHTML.appendChild(divCelular);
