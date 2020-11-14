@@ -1,3 +1,24 @@
+var price = [];
+var contador = 0;
+
+function sort(){
+    price.sort(function(a, b){return a-b});
+    var divOrg = document.querySelector(".destaques_uni");
+
+    for (let i=0; i<9; i++){
+        var divs = document.getElementById(price[i]);
+        var div = document.createElement("div");
+        div.setAttribute("class","divHome");
+        if (divs){
+            div.innerHTML = divs.innerHTML;
+            var remove = document.getElementById(price[i]);
+            remove.parentNode.removeChild(remove);
+            divOrg.appendChild(div);
+        }
+    }
+
+}
+
 function pesquisa() {
     removeDiv();
     reajustar();
@@ -49,6 +70,7 @@ function rasparColombo(documento){
         var divLogo = document.createElement("img");
         divCelular.setAttribute("class","divHome");
         divCelular.setAttribute("id", preco[i].innerHTML.substr(0, preco[i].innerHTML.indexOf(',')).replace(/\D+/g, ''));
+        price[contador] = preco[i].innerHTML.substr(0, preco[i].innerHTML.indexOf(',')).replace(/\D+/g, '');
         img.setAttribute("class","imgNew");
         estrela.setAttribute("class","imgEstrela");
         divNome.setAttribute("class","divNome");
@@ -75,6 +97,7 @@ function rasparColombo(documento){
         link2[i].target = "_blank";
         link2[i].href = rep2;
         link.href = rep2;
+        contador = contador + 1;
     }
 }
 function rasparSaldao(documento){
@@ -96,6 +119,7 @@ function rasparSaldao(documento){
         var divLogo = document.createElement("div");
         divCelular.setAttribute("class","divHome");
         divCelular.setAttribute("id", preco[i].innerHTML.substr(0, preco[i].innerHTML.indexOf(',')).replace(/\D+/g, ''));
+        price[contador] = preco[i].innerHTML.substr(0, preco[i].innerHTML.indexOf(',')).replace(/\D+/g, '');
         img.setAttribute("class","imgNew");
         estrela.setAttribute("class","imgEstrela");
         divNome.setAttribute("class","divNome");
@@ -124,6 +148,7 @@ function rasparSaldao(documento){
         link2[i].href = link2[i].href;
         link.href = link2[i].href;
         cont = cont + 7;
+        contador = contador + 1;
     }
 }
 function rasparCasa(documento){
@@ -144,6 +169,7 @@ function rasparCasa(documento){
         var divLogo = document.createElement("img");
         divCelular.setAttribute("class","divHome");
         divCelular.setAttribute("id", preco[i].innerHTML.substr(0, preco[i].innerHTML.indexOf(',')).replace(/\D+/g, ''));
+        price[contador] = preco[i].innerHTML.substr(0, preco[i].innerHTML.indexOf(',')).replace(/\D+/g, '');
         img.setAttribute("class","imgNew");
         estrela.setAttribute("class","imgEstrela");
         divNome.setAttribute("class","divNome");
@@ -166,6 +192,7 @@ function rasparCasa(documento){
         link2[i].target = "_blank";
         link2[i].href = link2[i].href;
         link.href = link2[i].href;
+        contador = contador + 1;
     }
 }
 function sendReqColombo(q){
