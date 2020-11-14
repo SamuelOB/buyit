@@ -48,6 +48,7 @@ function rasparColombo(documento){
         var link = document.createElement("a");
         var divLogo = document.createElement("img");
         divCelular.setAttribute("class","divHome");
+        divCelular.setAttribute("id", preco[i].innerHTML.substr(0, preco[i].innerHTML.indexOf(',')).replace(/\D+/g, ''));
         img.setAttribute("class","imgNew");
         estrela.setAttribute("class","imgEstrela");
         divNome.setAttribute("class","divNome");
@@ -58,9 +59,9 @@ function rasparColombo(documento){
         var rep = imgs[i].src;
         rep = rep.replace("file","https");
         img.src = rep;
-        estrela.src = "../buyit-main/img/estrela_3.png";
+        estrela.src = "img/estrela_3.png";
         divNome.innerHTML = ps[i].innerHTML;
-        divPreco.innerHTML = preco[i].innerHTML + parcela[i].innerHTML;
+        divPreco.innerHTML = preco[i].innerHTML + " à vista ou " + parcela[i].innerHTML;
         divLogo.src = logo;
         link.appendChild(img);
         link.appendChild(divNome);
@@ -69,9 +70,11 @@ function rasparColombo(documento){
         divCelular.appendChild(link);
         divCelular.appendChild(divLogo);
         divHTML.appendChild(divCelular);
+        var rep2 = link2[i].href;
+        rep2 = rep2.replace("file","https");
         link2[i].target = "_blank";
-        link2[i].href = link2[i].href;
-        link.href = link2[i].href;
+        link2[i].href = rep2;
+        link.href = rep2;
     }
 }
 function rasparSaldao(documento){
@@ -81,6 +84,7 @@ function rasparSaldao(documento){
     var parcela = documento.querySelectorAll(".s-sem-juros");
     var logo = documento.querySelector(".logo");
     var link2 = documento.querySelectorAll(".product-image");
+    var cont = 1;
     for (let i=0; i<3; i++) {
         var divHTML = document.querySelector(".destaques_uni");
         var divCelular = document.createElement("div");
@@ -91,6 +95,7 @@ function rasparSaldao(documento){
         var link = document.createElement("a");
         var divLogo = document.createElement("div");
         divCelular.setAttribute("class","divHome");
+        divCelular.setAttribute("id", preco[i].innerHTML.substr(0, preco[i].innerHTML.indexOf(',')).replace(/\D+/g, ''));
         img.setAttribute("class","imgNew");
         estrela.setAttribute("class","imgEstrela");
         divNome.setAttribute("class","divNome");
@@ -99,9 +104,14 @@ function rasparSaldao(documento){
         link.setAttribute("class","link");
         link.target = "_blank";
         img.src = imgs[i].src;
-        estrela.src = "../buyit-main/img/estrela_5.png";
-        divNome.innerHTML = ps[i].innerHTML;
-        divPreco.innerHTML = preco[i].innerHTML + parcela[i].innerHTML;
+        estrela.src = "img/estrela_5.png";
+        divNome.innerHTML = ps[cont].innerHTML;
+        if (preco[i].innerHTML.substr(0, preco[i].innerHTML.indexOf(',')).replace(/\D+/g, '')) {
+            divPreco.innerHTML = preco[i].innerHTML + " à vista ou " + parcela[i].innerHTML;
+        }
+        else{
+            divPreco.innerHTML = "Produto indisponível no momento";
+        }
         divLogo.innerHTML = logo.innerHTML;
         link.appendChild(img);
         link.appendChild(divNome);
@@ -113,6 +123,7 @@ function rasparSaldao(documento){
         link2[i].target = "_blank";
         link2[i].href = link2[i].href;
         link.href = link2[i].href;
+        cont = cont + 7;
     }
 }
 function rasparCasa(documento){
@@ -132,6 +143,7 @@ function rasparCasa(documento){
         var link = document.createElement("a");
         var divLogo = document.createElement("img");
         divCelular.setAttribute("class","divHome");
+        divCelular.setAttribute("id", preco[i].innerHTML.substr(0, preco[i].innerHTML.indexOf(',')).replace(/\D+/g, ''));
         img.setAttribute("class","imgNew");
         estrela.setAttribute("class","imgEstrela");
         divNome.setAttribute("class","divNome");
@@ -140,9 +152,9 @@ function rasparCasa(documento){
         link.setAttribute("class","link");
         link.target = "_blank";
         img.src = imgs[i].src;
-        estrela.src = "../buyit-main/img/estrela_1.png";
+        estrela.src = "img/estrela_1.png";
         divNome.innerHTML = ps[i].innerHTML;
-        divPreco.innerHTML = preco[i].innerHTML + parcela[i].innerHTML;
+        divPreco.innerHTML = preco[i].innerHTML + " à vista ou " + parcela[i].innerHTML;
         divLogo.src = logo;
         link.appendChild(img);
         link.appendChild(divNome);
