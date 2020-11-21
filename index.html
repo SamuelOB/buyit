@@ -33,7 +33,7 @@
     <header id="top">
         <div class="row justify-content-center">
             <nav class="navbar navbar-expand-sm">
-                <a class="navbar-brand logo" href="index.html">
+                <a class="navbar-brand" href="index.html">
                     <img src="img/logo-buyit.png" alt="logo-buyit">
                 </a>
                 <div>
@@ -48,7 +48,9 @@
     </header>
     <main>
         <div id="destaques">
-            <button id="byPrice" onclick="sort()">Organizar por preço</button>
+            <div class="filtro-preco">
+                <button id="byPrice" onclick="sort()">Organizar por menor preço</button>
+            </div>
             <div class="destaques_uni">
                 <div id="highlights">
                     <h1>Destaques</h1>
@@ -223,14 +225,14 @@
             </div>
             <div class="main-historico">
                 <div class="preco">
-                    <div class="menor">
+                    <div class="menorDiv">
                         <p>Menor preço</p>
-                        <p>R$ 2949,00</p>
+                        <p class="menor">R$ 2949,00</p>
                     </div>
                     <br><br>
-                    <div class="maior">
+                    <div class="maiorDiv">
                         <p>Maior preço</p>
-                        <p>R$ 3000,00</p>
+                        <p class="maior">R$ 3000,00</p>
                     </div>
                 </div>
                 <div class="chart"></div>
@@ -280,6 +282,8 @@
                             <input type="text" id="name" placeholder="Nome" class="form-control campos" required>
                             <textarea rows="4" cols="50" name="comment" id="comment" maxlength="200" form="form-avalia"
                                 placeholder="Seu comentário" class="form-control campos" required></textarea>
+							<input type="text" id="loja" placeholder="Loja" class="form-control campos" required>
+							<input type="text" id="modelo" placeholder="Modelo" class="form-control campos" required>
                         </div>
                     </form>
                     <div class="btn-formComen">
@@ -329,14 +333,24 @@
             const valor2 = Math.floor(Math.random() * (3500 - 2250) + 2250);
             const valor3 = Math.floor(Math.random() * (3500 - 2250) + 2250);
             const valor4 = Math.floor(Math.random() * (3500 - 2250) + 2250);
+			
+			var preco = [valor1, valor2, valor3, valor4];
+			
+			preco.sort();
+			
+			var menor = document.querySelector(".menor");
+			var maior = document.querySelector(".maior");
+			
+			menor.innerHTML = "R$ "+preco[0]+",00";
+			maior.innerHTML = "R$ "+preco[3]+",00";
 
             const container = document.querySelector(".chart");
             const data = new google.visualization.arrayToDataTable([
                 ['Dias', 'Preço'],
-                ['24 Outubro', valor1],
-                ['31 Outubro', valor2],
-                ['7 Novembro', valor3],
-                ['14 Novembro', valor4],
+                ['31 Outubro', valor1],
+                ['7 Novembro', valor2],
+                ['14 Novembro', valor3],
+                ['21 Novembro', valor4],
             ])
             const options = {
                 height: 300,
@@ -366,6 +380,8 @@
             var nome = document.querySelector("#name");
             var comentario = document.querySelector("#comment");
             var img = document.querySelector(".profileImage");
+			var loja = document.querySelector("#loja");
+			var modelo = document.querySelector("#modelo");
             var estrela = document.querySelector('input[name="rating"]:checked').value;
             var monNumber = new Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
             now = new Date;
@@ -381,9 +397,13 @@
                 var divContemData = document.createElement("div");
                 var divData = document.createElement("div");
                 var spanStar = document.createElement("span");
+				var divLoja = document.createElement("div");
+				var divModelo = document.createElement("div");
                 imgComentario.setAttribute("class", "imgComentario");
                 divContainer.setAttribute("class", "containerComentario");
-                divNomecom.setAttribute("class", "nomeComentario");
+				divNomecom.setAttribute("class", "nomeComentario");
+				divLoja.setAttribute("class", "loja");
+                divModelo.setAttribute("class", "modelo");
                 pComentario.setAttribute("class", "textoComentario");
                 divContemData.setAttribute("class", "containerData")
                 divData.setAttribute("class", "date");
@@ -395,16 +415,33 @@
                 pComentario.innerHTML = comentario.value;
                 divData.innerHTML = data;
                 spanStar.innerHTML = estrela;
+				divLoja.innerHTML = "Loja: "+loja.value;
+				divModelo.innerHTML = "Modelo: "+modelo.value;
                 div.appendChild(imgComentario);
                 divContainer.appendChild(divNomecom);
                 divContainer.appendChild(pComentario);
+				divContainer.appendChild(divLoja);
+				divContainer.appendChild(divModelo);
                 div.appendChild(divContainer);
                 divContemData.appendChild(divData);
                 divContemData.appendChild(spanStar);
                 div.appendChild(divContemData);
                 divMain.appendChild(div);
+				limpar();
             }
         }
+		function limpar(){
+			var nome = document.querySelector("#name");
+            var comentario = document.querySelector("#comment");
+            var img = document.querySelector(".profileImage");
+			var loja = document.querySelector("#loja");
+			var modelo = document.querySelector("#modelo");
+			nome.value = "";
+			comentario.value = "";
+			img.src = "https://www.lucasnaves.com.br/wp-content/uploads/2017/11/Light-Grey-Background-Hd-5-1.jpg";
+			loja.value = "";
+			modelo.value = "";
+		}
     </script>
 </body>
 

@@ -46,10 +46,6 @@ a:focus {
   width: 100vw;
 }
 
-.logo1 {
-  width: 100%;
-}
-
 .buttonIn {
   position: relative;
   width: 100%;
@@ -126,6 +122,13 @@ main {
 .container {
   border: 1px solid rgb(190, 190, 190);
   padding: 3%;
+}
+
+#byPrice{
+   /*position: relative;
+   left: 720px;
+   margin: 5% 0 1% 0;*/
+   display: none;
 }
 
 /* products */
@@ -410,13 +413,12 @@ ul.social-network li {
 .divHome{
   background-color: #FFFFFF;
   color: #39393B;
-  display: flex;
-  justify-content: space-around;
   position: relative;
   margin: 0 auto;
   margin-top: 2%;
   text-decoration: none;
   border: 1px solid #CFCCCC;
+  height: 300px;
 }
 
 .divHome a{  
@@ -441,15 +443,21 @@ ul.social-network li {
 .imgNew {
   width: 200px;
   height: 200px;
-  transition:all .5s ease 0s
+  transition:all .5s ease 0s;
 }
 
 .imgNew:hover {
   transform:scale(1.1)
 }
 
-.divNome, .divPreco, .imgNew, .divLogo, .link{
+.divNome, .divPreco, .imgNew, .link{
   margin: 2%;
+}
+
+.divNome {
+  position: absolute;
+  bottom: 30px;
+  left: 35px;
 }
 
 .divPreco {
@@ -458,13 +466,25 @@ ul.social-network li {
   right: 35px;
 }
 
-.divLogo{
-  width: 10%;
+.divLogo {
   max-height: fit-content;
-  align-self: flex-end;
+  position: absolute;
+  bottom: 5px;
+  right: 35px;
+  width: 120px;
 }
 
 .divLogo img {
+  position: absolute;
+  bottom: 50px;
+  right: 1px;
+  width: 120px;
+} 
+  
+.img-responsive {
+  position: absolute;
+  bottom: 5px;
+  right: 1px;
   width: 120px;
 }
 
@@ -493,11 +513,11 @@ a.link {
   justify-content: space-between;
 }
 
-.maior{
+.maior, .maiorDiv{
   color: rgb(172,0,0);;
 }
 
-.menor{
+.menor, .menorDiv{
   color: green;
 }
 
@@ -522,6 +542,7 @@ a.link {
   justify-content: space-around;
   align-items: center;
   background-color: #FFFFFF;
+  padding: 2%;
 }
 
 #campos-form {
@@ -687,10 +708,23 @@ label[for="imageUpload"] {
 p.textoComentario {
   margin-top: 1%;
   word-break: break-all;
+  margin-bottom: 2%;
 }
 
 .nomeComentario {
   margin-top: 1%;
+  font-weight: 600;
+}
+
+.loja{
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: gray;
+	padding-top: 1%;
+}
+
+.loja, .modelo{
+	margin-top: 1%;
 }
 
 .date {
@@ -700,4 +734,35 @@ p.textoComentario {
 
 .estrela {
   color: #FFD600;
+}
+
+/* filtro menor preço */
+
+.filtro-preco {
+  width: 67vw;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2%;
+}
+
+#byPrice {
+  background-color: #E8E8E8;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  color: #000000;
+  padding: 5px;
+  -webkit-box-shadow: 1px 1px 2px 2px #ccc;  
+  -moz-box-shadow:    1px 1px 2px 2px #ccc;
+  box-shadow:         1px 1px 2px 2px #ccc;
+}
+
+#byPrice:hover {
+  background-color: #DCDCDC;
+}
+
+#byPrice:focus {
+  border-color: rgb(172,0,0);
+  box-shadow: 0 0 0 0.2rem rgba(172,0,0,1);
+  outline: none;
 }

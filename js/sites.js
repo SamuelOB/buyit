@@ -49,8 +49,10 @@ function reajustar(){
 function comentario(){
     var comentario = document.querySelector("#session-comentarios");
     var historico = document.querySelector("#session-historico");
+	var fitro = document.querySelector("#byPrice");
     comentario.style.display="flex";
     historico.style.position="inherit";
+	fitro.style.display="block";
 }
 function rasparColombo(documento){
     var imgs = documento.querySelectorAll(".nm-product-img");
